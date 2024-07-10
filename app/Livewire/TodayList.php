@@ -16,20 +16,27 @@ class TodayList extends Component
     public $search;
     public $editingName;
     public $editingId;
+    
+    public $todal;
     protected $rules = [
         'name' => 'required|min:6',
     ];
+
+    public function mount(Todal $todal) // Mount property is same controller ____construct fucntion
+    {
+        $this->todal = $todal;
+    }
     public function create()
     {
         $validatedData = $this->validate();
-        Todal::create($validatedData);
+        $this->todal->create($validatedData);
         $this->reset('name');
         session()->flash('success' ,'Create Success.');
     }
 
     public function edit($id)
     {
-        $todo= Todal::find($id);
+        $todo=  $this->todal->find($id);
         $this->editingName = $todo->name;
         $this->editingId = $todo->id;
 
@@ -37,7 +44,7 @@ class TodayList extends Component
 
     public function update($id)
     {
-       Todal::find($this->editingId)->update(
+        $this->todal->find($this->editingId)->update(
         [
             'name' => $this->editingName
         ]
@@ -51,7 +58,7 @@ class TodayList extends Component
     }
     public function toggle($todoId)
     {
-        $todo = Todal::find($todoId);
+        $todo =  $this->todal->find($todoId);
         $todo->complete = !$todo->complete;
         $todo->save();
     }
@@ -63,7 +70,7 @@ class TodayList extends Component
     {
         
         return view('livewire.today-list',[
-            'todas'=>Todal::latest()->where('name','like',"%{$this->search}%")->paginate(5)
+            'todas'=> $this->todal->latest()->where('name','like',"%{$this->search}%")->paginate(5)
         ]);
     }
 }

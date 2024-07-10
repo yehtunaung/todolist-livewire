@@ -15,8 +15,8 @@
                 <h3 class="mr-5">{{ $todo->name ?? '-' }}</h3>
             @endif
         </div>
-        <div class="d-flex align-items-center">
-            <button wire:click="edit({{ $todo->id }})" class="btn btn-primary">
+        <div class="d-flex mr-3 align-items-center">
+            <button wire:click="edit({{ $todo->id }})" class="btn btn-primary mx-2">
                 Edit
             </button>
             <button wire:click="delete({{ $todo->id }})" onclick="return confirm('Sure?');" class="btn btn-danger ">
