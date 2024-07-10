@@ -24,6 +24,13 @@ class TodayList extends Component
         $this->reset('name');
         session()->flash('success' ,'Create Success.');
     }
+
+    public function toggle($todoId)
+    {
+        $todo = Todal::find($todoId);
+        $todo->complete = !$todo->complete;
+        $todo->save();
+    }
     public function delete(Todal $todal)
     {
         $todal = $todal->delete();
