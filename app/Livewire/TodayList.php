@@ -14,6 +14,8 @@ class TodayList extends Component
     use WithPagination;
     public $name;
     public $search;
+    public $editingName;
+    public $editingId;
     protected $rules = [
         'name' => 'required|min:6',
     ];
@@ -25,6 +27,28 @@ class TodayList extends Component
         session()->flash('success' ,'Create Success.');
     }
 
+    public function edit($id)
+    {
+        $todo= Todal::find($id);
+        $this->editingName = $todo->name;
+        $this->editingId = $todo->id;
+
+    }
+
+    public function update($id)
+    {
+       Todal::find($this->editingId)->update(
+        [
+            'name' => $this->editingName
+        ]
+       );
+       $this->cancel();
+    }
+
+    public function cancel()
+    {
+        $this->reset('editingId','editingName');
+    }
     public function toggle($todoId)
     {
         $todo = Todal::find($todoId);
