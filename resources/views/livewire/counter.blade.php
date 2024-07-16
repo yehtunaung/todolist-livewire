@@ -1,5 +1,3 @@
-@extends('welcome')
-@section('content')
     <div class="row">
         <h1>{{ $count }}</h1>
 
@@ -7,4 +5,3 @@
 
         <button wire:click="decrement">-</button>
     </div>
-@endsection
