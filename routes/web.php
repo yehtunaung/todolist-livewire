@@ -2,6 +2,7 @@
 
 use App\Livewire\Counter;
 use App\Livewire\TodayList;
+use App\Livewire\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,5 @@ Route::get('/', function () {
 Route::get('/todo-list', TodayList::class)->name('todo-list');
 
 Route::get('/counter', Counter::class)->name('counter');
+Route::get('/user', User::class)->name('user');
 

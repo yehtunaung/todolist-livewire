@@ -19,7 +19,7 @@
             @endforeach
 
             <div class="d-flex justify-content-between flex-column mt-3">
-                    {{ $todas->links('pagination::bootstrap-5') }}
+                    {{ $todas->links() }}
             </div>
         </div>
     </div>
