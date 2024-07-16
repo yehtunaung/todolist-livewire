@@ -69,8 +69,14 @@ class TodayList extends Component
     public function render()
     {
         
-        return view('livewire.today-list',[
-            'todas'=> $this->todal->latest()->where('name','like',"%{$this->search}%")->paginate(5)
-        ]);
+        // return view('livewire.today-list',[
+        //     'todas'=> $this->todal->latest()->where('name','like',"%{$this->search}%")->paginate(5)
+        // ]);
+        $todas = $this->todal
+        ->latest()
+        ->where('name', 'like', "%{$this->search}%")
+        ->paginate(5);
+
+    return view('livewire.today-list', compact('todas'));
     }
 }

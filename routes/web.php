@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Counter;
+use App\Livewire\TodayList;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/counter', Counter::class);
+
+Route::get('/todo-list', TodayList::class)->name('todo-list');
+
+Route::get('/counter', Counter::class)->name('counter');
 

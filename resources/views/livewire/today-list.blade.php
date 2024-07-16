@@ -1,3 +1,5 @@
+@extends('welcome')
+@section('content')
 <div class="row">
     <div id="content" class="mx-auto mt-5 row" style="max-width: 500px;">
         @include('livewire.includes.create-today-box')
@@ -24,3 +26,4 @@
         </div>
     </div>
 </div>
+@endsection 
