@@ -19,14 +19,17 @@ class User extends Component
 
     public function create()
     {
+        sleep(1);
         $validate = $this->validate();
         \App\Models\User::create($validate);
         $this->reset('name','email','password','phone_no');
         session()->flash('success' , 'User Created!');
 
     }
+
     public function render()
     {
+        $userLists = \App\Models\User::latest()->paginate(5);
         return view('livewire.user');
     }
 }

@@ -1,8 +1,10 @@
 <div class="card shadow-sm">
-    <div class="row">
-        <div class="d-flex  flex-column align-items-center px-2 my-4 justify-content-center">
+    <div class="d-flex justify-content-around">
+      @livewire('user-list')
+
+        <div class="px-2 my-4 ">
             <h2>User Registration Form</h2>
-            <form wire:submit="create">
+            <form >
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" wire:model="name" class="form-control" id="exampleInputname" name="name">
@@ -22,8 +24,8 @@
 
                 <div class="form-group">
                     <label for="Email1">Email address</label>
-                    <input type="email" class="form-control" wire:model="email" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        name="email">
+                    <input type="email" class="form-control" wire:model="email" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" name="email">
                     @error('email')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -43,7 +45,10 @@
                     <input type="file" class="form-control" wire:model="photo" id="exampleInputPassword"
                         name="password">
                 </div>
-                <button type="submit" class="btn btn-primary mt-2">Sign up</button>
+                <button wire:loading.remove type="" class="btn btn-primary mt-2"wire:click.prevent="create" >Sign up</button>
+                <div wire:loading.delay>
+                    <span class="text-success">Sending....</span>
+                </div>
             </form>
         </div>
     </div>
