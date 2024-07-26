@@ -21,9 +21,10 @@ class User extends Component
     {
         sleep(1);
         $validate = $this->validate();
-        \App\Models\User::create($validate);
+        $user = \App\Models\User::create($validate);
         $this->reset('name','email','password','phone_no');
         session()->flash('success' , 'User Created!');
+        $this->dispatch('user-created',$user);
 
     }
 

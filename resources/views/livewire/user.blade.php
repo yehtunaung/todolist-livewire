@@ -1,10 +1,13 @@
 <div class="card shadow-sm">
     <div class="d-flex justify-content-around">
-      @livewire('user-list')
+        @livewire('user-list')
 
         <div class="px-2 my-4 ">
             <h2>User Registration Form</h2>
-            <form >
+            @if (session('success'))
+                <span class="text-success text-xs mt-5">{{ session('success') }}</span>
+            @endif
+            <form>
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" wire:model="name" class="form-control" id="exampleInputname" name="name">
@@ -45,7 +48,8 @@
                     <input type="file" class="form-control" wire:model="photo" id="exampleInputPassword"
                         name="password">
                 </div>
-                <button wire:loading.remove type="" class="btn btn-primary mt-2"wire:click.prevent="create" >Sign up</button>
+                <button wire:loading.remove type="" class="btn btn-primary mt-2"wire:click.prevent="create">Sign
+                    up</button>
                 <div wire:loading.delay>
                     <span class="text-success">Sending....</span>
                 </div>

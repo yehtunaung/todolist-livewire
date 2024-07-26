@@ -19,9 +19,7 @@
             <td>{{ $userlist->phone_no ?? '-'}}</td>
           </tr>
           @endforeach
-          {{-- <div class="d-flex justify-content-between flex-column mt-3"> --}}
-            {{ $userLists->links() }}
-    {{-- </div> --}}
         </tbody>
       </table>
+        {{ $userLists->links() }}
    </div>
