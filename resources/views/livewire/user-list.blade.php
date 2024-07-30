@@ -1,4 +1,4 @@
-<div class="col-md-6 px-2 py-4">
+<div class="col-md-6 px-2 py-4" wire:poll.keep-alive.10s>
 
     <table class="table table-striped">
         <thead>

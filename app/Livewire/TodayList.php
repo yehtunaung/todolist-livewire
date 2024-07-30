@@ -75,6 +75,7 @@ class TodayList extends Component
         $todas = $this->todal
         ->latest()
         ->where('name', 'like', "%{$this->search}%")
+        ->orWhere('updated_at','like', "%{$this->search}%")
         ->paginate(5);
 
     return view('livewire.today-list', compact('todas'));
