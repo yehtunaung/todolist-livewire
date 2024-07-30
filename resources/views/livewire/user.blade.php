@@ -1,4 +1,10 @@
 <div class="card shadow-sm">
+    <div class="px-2 my-4" wire:offline>
+        <div class="alert alert-warning alert-dismissible fade show">
+            <strong>Warning!</strong> There was a problem with your network connection.
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    </div>
     <div class="d-flex justify-content-around">
         @livewire('user-list')
 
@@ -7,7 +13,7 @@
             @if (session('success'))
                 <span class="text-success text-xs mt-5">{{ session('success') }}</span>
             @endif
-            <form>
+            <form wire:offline.remove>
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" wire:model="name" class="form-control" id="exampleInputname" name="name">

@@ -1,6 +1,6 @@
 <div class="col-md-6 px-2 py-4" wire:poll.keep-alive.10s>
-
-    <table class="table table-striped">
+  <input type="search" wire:model.live.debounce.100ms="search" placeholder="Search..." class="form-control bg-light ml-2 rounded px-4 py-2">
+    <table class="table table-striped mt-5">
         <thead>
           <tr>
             <th scope="col">#</th>
