@@ -8,7 +8,7 @@
     <div class="d-flex justify-content-around">
         @livewire('user-list')
 
-        <div class="px-2 my-4 ">
+        <div class="px-2 my-4 " wire:keydown.shift.window="create">
             <h2>User Registration Form</h2>
             @if (session('success'))
                 <span class="text-success text-xs mt-5">{{ session('success') }}</span>
@@ -16,7 +16,7 @@
             <form wire:offline.remove>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" wire:model="name" class="form-control" id="exampleInputname" name="name">
+                    <input type="text" wire:model.lazy="name" class="form-control" id="exampleInputname" name="name">
                     @error('name')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
