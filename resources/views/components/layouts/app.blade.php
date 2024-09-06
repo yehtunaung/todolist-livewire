@@ -30,6 +30,10 @@
                                 <li class="nav-item mx-2">
                                     <a class="nav-link" href="{{ route('user')}}">User</a>
                                 </li>
+                                
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link" href="{{ route('calendar')}}">Calendar</a>
+                                </li>
                             </ul>
                         </div>
                         <form class="form-inline">

@@ -14,6 +14,12 @@
                 <span class="text-success text-xs mt-5">{{ session('success') }}</span>
             @endif
             <form wire:offline.remove>
+                <select class="form-select" aria-label="Default select example" id="test-element">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" wire:model.lazy="name" class="form-control" id="exampleInputname" name="name">
